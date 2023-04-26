@@ -1,5 +1,5 @@
-import { Label, Input } from 'components/FormContact/FormContact.styled';
-import { Title } from './Filter.styled';
+import { Label} from 'components/FormContact/FormContact.styled';
+import { Title, Input} from './Filter.styled';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filterSlice';
 

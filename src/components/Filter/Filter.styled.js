@@ -5,3 +5,11 @@ export const Title = styled.h2`
   font-size: 20px;
   font-weight: 500;
 `;
+export const Input = styled.input`
+  display: block;
+  width: 350px;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+`;

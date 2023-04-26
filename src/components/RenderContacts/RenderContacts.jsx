@@ -1,7 +1,7 @@
 import { ItemContact } from 'components/Contact/Contact';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contactsSlice';
-import { Button, Wrapper } from './RenderContacts.styled';
+import { List, Button, Wrapper } from './RenderContacts.styled';
 import PropTypes from 'prop-types';
 
 export const RenderContacts = () => {
@@ -16,7 +16,7 @@ export const RenderContacts = () => {
   );
 
   return (
-    <ul>
+    <List>
       {visibleContacts.map(contact => (
         <Wrapper key={contact.id}>
           <ItemContact contact={contact}></ItemContact>
@@ -25,7 +25,7 @@ export const RenderContacts = () => {
           </Button>
         </Wrapper>
       ))}
-    </ul>
+    </List>
   );
 };
 
