@@ -2,6 +2,7 @@ import { Contact } from './Contact.styled';
 import PropTypes from 'prop-types';
 
 export const ItemContact = ({ contact }) => {
+  console.log(contact);
   return (
     <>
       <Contact type="button" name={contact.name}>
@@ -9,4 +10,7 @@ export const ItemContact = ({ contact }) => {
       </Contact>
     </>
   );
+};
+ItemContact.prototype = {
+  contact: PropTypes.object,
 };

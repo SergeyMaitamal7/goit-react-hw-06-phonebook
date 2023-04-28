@@ -6,9 +6,8 @@ import {
   ErrorMessage,
   Box,
 } from './FormContact.styled';
-import { useState } from 'react';
-import { getContacts } from 'redux/selector';
 import { useDispatch, useSelector } from 'react-redux';
+import { getContacts } from 'redux/selector';
 import { addContact } from 'redux/contactsSlice';
 import Notiflix from 'notiflix';
 import PropTypes from 'prop-types';
@@ -45,14 +44,11 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
 
   const onSubmit = ({ name, number }) => {
-    console.log(name, 'name');
-    console.log(number, 'number');
     const filterName = contacts.find(contact => contact.name === name);
     if (filterName) {
       Notiflix.Notify.failure(
         `You have already added ${name} to Contact list!!!`
       );
-
       return;
     }
     dispatch(
@@ -65,7 +61,7 @@ export const ContactForm = () => {
 
   const onSubmitInner = (value, { resetForm }) => {
     onSubmit(value);
-    console.log(value);
+    // console.log(value);
     resetForm();
   };
 
@@ -107,7 +103,12 @@ export const ContactForm = () => {
     </Formik>
   );
 };
+ContactForm.propTypes = {
+    name: PropTypes.string,
+    number: PropTypes.number,
+  };
 
+  
 // import { Form, Label, Input, Button } from './FormContact.styled';
 // import { useState } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';

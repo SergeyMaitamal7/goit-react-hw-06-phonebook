@@ -3,12 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contactsSlice';
 import { List, Button, Wrapper } from './RenderContacts.styled';
 import PropTypes from 'prop-types';
+import { getContacts, getFilter } from 'redux/selector';
 
 export const RenderContacts = () => {
-  const contacts = useSelector(state => state.contacts.contacts);
-  const filters = useSelector(state => state.filters);
+  const contacts = useSelector(getContacts);
+  const filters = useSelector(getFilter);
   const dispatch = useDispatch();
-  
+
   if (!contacts) return;
 
   const visibleContacts = contacts.filter(contact =>
@@ -29,3 +30,11 @@ export const RenderContacts = () => {
   );
 };
 
+RenderContacts.prototype = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+    })
+  ),
+  deleteContact: PropTypes.func,
+};
